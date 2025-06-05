@@ -20,10 +20,15 @@ public class ProductController {
     private final ProductService service;
 
     @GetMapping({"", "/"}) // products 또는 /products/ 둘 다 매핑
-    public String viewHomePage(Model model) {
+    public String viewHomePage(@RequestParam(value = "success", required = false) String success,
+                              Model model) {
 
         List<Product> listProducts = service.listAll();
         model.addAttribute("listProducts", listProducts);
+        
+        if (success != null) {
+            model.addAttribute("successMessage", "로그인에 성공했습니다!");
+        }
 
         return "index";
     }
