@@ -19,15 +19,48 @@ helloSpringDataJpa/
 │   ├── main/
 │   │   ├── java/
 │   │   │   └── kr/ac/hansung/cse/hellospringdatajpa/
-│   │   │       ├── controller/     # 웹 컨트롤러
-│   │   │       ├── entity/         # JPA 엔티티
-│   │   │       ├── repo/           # 데이터 리포지토리
-│   │   │       ├── service/        # 비즈니스 로직
-│   │   │       └── HelloSpringDataJpaApplication.java
-│   │   └── resources/              # 설정 파일 및 정적 자원
-│   └── test/                       # 테스트 코드
-├── pom.xml                         # Maven 설정 파일
-└── README.md
+│   │   │       ├── config/                          # 설정 클래스
+│   │   │       │   └── SecurityConfig.java          # Spring Security 설정
+│   │   │       ├── controller/                      # 웹 컨트롤러
+│   │   │       │   ├── AdminController.java         # 관리자 페이지 컨트롤러
+│   │   │       │   ├── AuthController.java          # 인증 관련 컨트롤러
+│   │   │       │   └── ProductController.java       # 상품 관리 컨트롤러
+│   │   │       ├── entity/                          # JPA 엔티티
+│   │   │       │   ├── Product.java                 # 상품 엔티티
+│   │   │       │   ├── Role.java                    # 권한 엔티티
+│   │   │       │   └── User.java                    # 사용자 엔티티
+│   │   │       ├── repo/                           # 데이터 리포지토리
+│   │   │       │   ├── ProductRepository.java       # 상품 리포지토리
+│   │   │       │   ├── RoleRepository.java          # 권한 리포지토리
+│   │   │       │   └── UserRepository.java          # 사용자 리포지토리
+│   │   │       ├── service/                         # 비즈니스 로직
+│   │   │       │   ├── CustomUserDetailsService.java # Spring Security 사용자 인증 서비스
+│   │   │       │   ├── ProductService.java          # 상품 서비스
+│   │   │       │   └── UserService.java             # 사용자 서비스
+│   │   │       └── HelloSpringDataJpaApplication.java # 메인 애플리케이션 클래스
+│   │   └── resources/                               # 설정 파일 및 정적 자원
+│   │       ├── templates/                           # Thymeleaf 템플릿
+│   │       │   ├── admin/                           # 관리자 페이지 템플릿
+│   │       │   │   ├── dashboard.html               # 관리자 대시보드
+│   │       │   │   └── users.html                   # 사용자 관리 페이지
+│   │       │   ├── auth/                            # 인증 관련 템플릿
+│   │       │   │   ├── login.html                   # 로그인 페이지
+│   │       │   │   └── register.html                # 회원가입 페이지
+│   │       │   ├── common.html                      # 공통 템플릿 조각
+│   │       │   ├── edit_product.html                # 상품 수정 페이지
+│   │       │   ├── index.html                       # 메인 페이지 (상품 목록)
+│   │       │   └── new_product.html                 # 상품 등록 페이지
+│   │       ├── application.properties               # 애플리케이션 설정
+│   │       └── data.sql                            # 초기 데이터 SQL
+│   └── test/                                       # 테스트 코드
+├── target/                                         # 빌드 결과물
+├── .mvn/                                          # Maven Wrapper 설정
+├── mvnw                                           # Maven Wrapper (Unix)
+├── mvnw.cmd                                       # Maven Wrapper (Windows)
+├── pom.xml                                        # Maven 설정 파일
+├── .gitignore                                     # Git 무시 파일
+├── .gitattributes                                 # Git 속성 파일
+└── README.md                                      # 프로젝트 설명 파일
 ```
 
 ## 설치 및 실행
